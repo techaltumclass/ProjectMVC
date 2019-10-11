@@ -1,1 +1,2 @@
 *.ide-shm
+/storage.ide-wal
