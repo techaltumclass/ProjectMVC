@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ECommerce.DataLayer.EDMX;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,11 @@ namespace MVC_Ecommerce.Controllers
 {
     public class HomeController : Controller
     {
+        ECommerceDataEntities _context = new ECommerceDataEntities();
         public ActionResult Index()
         {
-            return View();
+            List<UserMaster> users = _context.UserMasters.ToList();
+            return View(users);
         }
 
         public ActionResult About()
