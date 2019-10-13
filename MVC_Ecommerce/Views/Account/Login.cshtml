@@ -6,3 +6,21 @@
 
 <h2>Login</h2>
 
+@using (Html.BeginForm())
+{
+    @Html.Label("Enter Email Address:") @Html.TextBox("email")
+
+    <br />
+    @Html.Label("Enter Password:") @Html.TextBox("password", null, new { type = "password" })
+
+    <br />
+
+    <button type="submit"> Submit</button>
+
+}
+
+<p>
+    @ViewBag.LoginMessage
+</p>
+
+
