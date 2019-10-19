@@ -95,17 +95,17 @@ namespace ECommerce.DataLayer.EDMX
         public virtual DbSet<temptablenew> temptablenews { get; set; }
         public virtual DbSet<userlogin> userlogins { get; set; }
     
-        [DbFunction("ECommerceDataEntities", "getchildnodelist")]
+        [DbFunction("EcommerceDataEntities", "getchildnodelist")]
         public virtual IQueryable<getchildnodelist_Result> getchildnodelist(Nullable<int> categoryid)
         {
             var categoryidParameter = categoryid.HasValue ?
                 new ObjectParameter("categoryid", categoryid) :
                 new ObjectParameter("categoryid", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<getchildnodelist_Result>("[ECommerceDataEntities].[getchildnodelist](@categoryid)", categoryidParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<getchildnodelist_Result>("[EcommerceDataEntities].[getchildnodelist](@categoryid)", categoryidParameter);
         }
     
-        [DbFunction("ECommerceDataEntities", "Splitmain")]
+        [DbFunction("EcommerceDataEntities", "Splitmain")]
         public virtual IQueryable<Splitmain_Result> Splitmain(string @string, string delimiter)
         {
             var stringParameter = @string != null ?
@@ -116,7 +116,7 @@ namespace ECommerce.DataLayer.EDMX
                 new ObjectParameter("Delimiter", delimiter) :
                 new ObjectParameter("Delimiter", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<Splitmain_Result>("[ECommerceDataEntities].[Splitmain](@String, @Delimiter)", stringParameter, delimiterParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<Splitmain_Result>("[EcommerceDataEntities].[Splitmain](@String, @Delimiter)", stringParameter, delimiterParameter);
         }
     
         public virtual int AddCitiesForCashDelivery(Nullable<int> cityIdForCD, Nullable<int> createdBy, string pincode, ObjectParameter rcode)
