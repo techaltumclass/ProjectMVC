@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ecommerce.CommonLayer.AOPEngine;
+using ECommerce.CommonLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +18,7 @@ namespace MVC_Ecommerce
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            UnityRegistration.InitializeAopContainer();
         }
     }
 }

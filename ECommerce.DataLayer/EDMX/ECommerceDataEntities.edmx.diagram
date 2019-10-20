@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8ded75039af24a0d9bb8d45366df2ea1" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="ECommerceDataModel.author" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.BestSellerProduct" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.Brand" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.CashDeliveryCity" Width="1.5" PointX="7.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.category" Width="1.5" PointX="5.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.city" Width="1.5" PointX="7.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.CityPincode" Width="1.5" PointX="10" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.country" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.coupenstatu" Width="1.5" PointX="14.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.coupentype" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.discountcoupen" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.downloadform" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.ExceptionLog" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.featureproduct" Width="1.5" PointX="16.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.fiction" Width="1.5" PointX="7.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.ForthComingProduct" Width="1.5" PointX="17.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.giftdetail" Width="1.5" PointX="9.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.hotdeal" Width="1.5" PointX="17.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.ledger" Width="1.5" PointX="17.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.Manufacturer" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.masterdiscount" Width="1.5" PointX="18.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.MyEmployee" Width="1.5" PointX="2.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.newaddedcity" Width="1.5" PointX="19.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.newrelease" Width="1.5" PointX="11.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.nonfiction" Width="1.5" PointX="19.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.occassion" Width="1.5" PointX="13.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.order1" Width="1.5" PointX="12.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.OrderDelivery" Width="1.5" PointX="15" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.orderdescription" Width="1.5" PointX="19.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.orderhistory" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.orderlist" Width="1.5" PointX="4.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.paymentcurrency" Width="1.5" PointX="20.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.paymentdetail" Width="1.5" PointX="6.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.paymentmode" Width="1.5" PointX="21.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.paymenttype" Width="1.5" PointX="8.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.product" Width="1.5" PointX="2.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.Product_Image" Width="1.5" PointX="12.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.ProductColor" Width="1.5" PointX="21.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.ProductPrice" Width="1.5" PointX="5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.ProductReview" Width="1.5" PointX="21.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.ProductSize" Width="1.5" PointX="21.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.RoleMaster" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.shoppingcart" Width="1.5" PointX="21.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.smsdata" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.specificationdetail" Width="1.5" PointX="8" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.SpecificationHead" Width="1.5" PointX="0.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.state" Width="1.5" PointX="22.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.supercategory" Width="1.5" PointX="13.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.taxclass" Width="1.5" PointX="15.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.temptableproductid" Width="1.5" PointX="17.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.temptabletraderproductid" Width="1.5" PointX="23.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.top10category" Width="1.5" PointX="10.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.traderdiscount" Width="1.5" PointX="23.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.traderlogin" Width="1.5" PointX="23.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.traderorder" Width="1.5" PointX="23.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.traderorderdescription" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.traderorderlist" Width="1.5" PointX="0.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.tradershoppingcart" Width="1.5" PointX="2.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.traderwishlist" Width="1.5" PointX="4.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.UserLog" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.UserMaster" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.UserRole" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.Vendor" Width="1.5" PointX="10" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.Wallet" Width="1.5" PointX="15" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.pbkup" Width="1.5" PointX="25.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.temptablenew" Width="1.5" PointX="6.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceDataModel.userlogin" Width="1.5" PointX="12.75" PointY="25.75" IsExpanded="true" />
+        <AssociationConnector Association="ECommerceDataModel.FK__CityPinco__CDCit__67B44C51" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceDataModel.FK__specifica__lcate__6C79016E" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceDataModel.FK__CityPinco__Cityi__68A8708A" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceDataModel.FK__Vendor__CityId__6E6149E0" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceDataModel.FK__OrderDeli__order__699C94C3" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceDataModel.FK__Wallet__OrderId__6F556E19" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceDataModel.FK__ProductPr__Produ__6B84DD35" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceDataModel.FK__specifica__lprod__6D6D25A7" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceDataModel.FK__Product_I__Vendo__6A90B8FC" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceDataModel.FK__RoleMaste__Creat__0B879873" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceDataModel.FK__UserRole__RoleID__0F582957" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceDataModel.FK__UserLog__UserID__12349602" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceDataModel.FK__UserRole__UserID__0E64051E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="CustomFilters\AuthorizePageAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -810,9 +811,21 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ECommerce.DataLayer\ECommerce.DataLayer.csproj">
-      <Project>{f7eaeec0-35d1-4412-ac38-48c8ac010a60}</Project>
-      <Name>ECommerce.DataLayer</Name>
+    <ProjectReference Include="..\ECommerce.BusinessLayer.Services\ECommerce.BusinessLayer.Services.csproj">
+      <Project>{97342150-013C-491B-B296-4214AFAD37B3}</Project>
+      <Name>ECommerce.BusinessLayer.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ecommerce.BusinessLayer\Ecommerce.BusinessLayer.csproj">
+      <Project>{ac7fb333-9949-42d1-a64a-75c9b5349617}</Project>
+      <Name>Ecommerce.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ecommerce.CommonLayer.AOPEngine\Ecommerce.CommonLayer.AOPEngine.csproj">
+      <Project>{A4BA07CA-94DC-47F2-8820-80F6AEDDE970}</Project>
+      <Name>Ecommerce.CommonLayer.AOPEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ECommerce.CommonLayer\ECommerce.CommonLayer.csproj">
+      <Project>{6be56f1b-c58c-483d-9729-e86d82acd144}</Project>
+      <Name>ECommerce.CommonLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

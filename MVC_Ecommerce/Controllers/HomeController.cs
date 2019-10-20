@@ -1,4 +1,4 @@
-﻿using ECommerce.DataLayer.EDMX;
+﻿using Ecommerce.BusinessLayer.Services.BO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +7,11 @@ using System.Web.Mvc;
 
 namespace MVC_Ecommerce.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        ECommerceDataEntities _context = new ECommerceDataEntities();
         public ActionResult Index()
         {
-            List<UserMaster> users = _context.UserMasters.ToList();
+            List<UserMasterBO> users = UserBusinessInstance.GetUser();
             return View(users);
         }
 
