@@ -11,7 +11,8 @@ namespace ECommerce.DataLayer.EDMX
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class UserMaster
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,8 +24,11 @@ namespace ECommerce.DataLayer.EDMX
         }
     
         public int UserID { get; set; }
+        [Required]
         public string cfirstname { get; set; }
+        [Required]
         public string clastname { get; set; }
+        [Required]
         public string cemailaddress { get; set; }
         public string cpassword { get; set; }
         public string caddstreet1 { get; set; }

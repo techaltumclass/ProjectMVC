@@ -1,0 +1,87 @@
+﻿@model MVC_Ecommerce.ViewModels.RolesModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Role Name")
+        </th>
+        <th>
+            @Html.DisplayName("RollType")
+        </th>
+        <th>
+            @Html.DisplayName("RollDescription")
+        </th>
+        <th>
+            @Html.DisplayName("User Name")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.roles) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RollName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RollType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RollDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserMaster.cfirstname)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RoleID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RoleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RoleID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<br />
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("User ID")
+        </th>
+        <th>
+            @Html.DisplayName("Roll ID")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.userRoles)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.UserRoleID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.UserRoleID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.UserRoleID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+

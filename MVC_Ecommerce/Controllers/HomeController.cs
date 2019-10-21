@@ -16,6 +16,7 @@ namespace MVC_Ecommerce.Controllers
             return View(users);
         }
 
+        [Authorize()]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

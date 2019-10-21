@@ -45,10 +45,37 @@ namespace MVC_Ecommerce.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Register()
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Register(UserMaster user)
+        {
+            bool isSuccess = false;
+            if (ModelState.IsValid)
+            {
+                _context.UserMasters.Add(user);
+                isSuccess = _context.SaveChanges() > 0 ? true : false;
+            }
+            else
+                ViewBag.Message = "Model Validation error";
+
+            int myuser;
+            if (isSuccess)
+            {
+                myuser = user.UserID;
+                ModelState.Clear();
+                ViewBag.Message = "Success!";
+            }
+            else
+                ViewBag.Message = "Fail";
+
+            return View();
+        }
+
 
         public ActionResult ForgetPassword()
         {
