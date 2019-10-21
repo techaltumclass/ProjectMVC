@@ -554,3 +554,4 @@ MigrationBackup/
 /.vs/MVC_Ecommerce/v15/.suo
 /.vs/MVC_Ecommerce/v15/Server/sqlite3/storage.ide-wal
 /MVC_Ecommerce/bin
+/MVC_Ecommerce/obj
