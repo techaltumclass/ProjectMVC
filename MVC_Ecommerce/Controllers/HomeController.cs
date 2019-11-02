@@ -1,4 +1,6 @@
-﻿using Ecommerce.BusinessLayer.Services.BO;
+﻿using ECommerce.DataLayer;
+using ECommerce.DataLayer.EDMX;
+using MVC_Ecommerce.CustomFilters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +9,17 @@ using System.Web.Mvc;
 
 namespace MVC_Ecommerce.Controllers
 {
-    public class HomeController : BaseController
+    
+    public class HomeController : Controller
     {
+        ECommerceDataEntities _context = new ECommerceDataEntities();
         public ActionResult Index()
         {
-            List<UserMasterBO> users = UserBusinessInstance.GetUser();
+            List<UserMaster> users = _context.UserMasters.ToList();
             return View(users);
         }
 
-        [Authorize()]
+        [AuthorizePage((int)AspectEnums.RoleType.Admin)]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
