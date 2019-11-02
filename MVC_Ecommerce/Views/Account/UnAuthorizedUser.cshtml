@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "UnAuthorized User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<p class="login-box-msg">UnAuthorized User</p>
+
+
+<a href="@Url.Action("Login", "Account")">Try Login again.</a><br>
+
+<a href="@Url.Action("Register", "Account")" class="text-center">Register a new membership</a>
+

@@ -1,4 +1,6 @@
-﻿using ECommerce.DataLayer.EDMX;
+﻿using ECommerce.DataLayer;
+using ECommerce.DataLayer.EDMX;
+using MVC_Ecommerce.CustomFilters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MVC_Ecommerce.Controllers
 {
+    
     public class HomeController : Controller
     {
         ECommerceDataEntities _context = new ECommerceDataEntities();
@@ -16,7 +19,7 @@ namespace MVC_Ecommerce.Controllers
             return View(users);
         }
 
-        [Authorize()]
+        [AuthorizePage((int)AspectEnums.RoleType.Admin)]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

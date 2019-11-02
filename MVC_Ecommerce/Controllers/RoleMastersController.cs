@@ -6,11 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ECommerce.DataLayer;
 using ECommerce.DataLayer.EDMX;
+using MVC_Ecommerce.CustomFilters;
 using MVC_Ecommerce.ViewModels;
 
 namespace MVC_Ecommerce.Controllers
 {
+    [AuthorizePage((int)AspectEnums.RoleType.Admin)]
     public class RoleMastersController : Controller
     {
         private ECommerceDataEntities db = new ECommerceDataEntities();
