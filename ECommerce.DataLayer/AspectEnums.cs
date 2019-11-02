@@ -12,7 +12,8 @@ namespace ECommerce.DataLayer
         {
             Admin = 1,
             Employee = 2,
-            Customer = 3
+            Customer = 3,
+Default = 99
         }
     }
 }
