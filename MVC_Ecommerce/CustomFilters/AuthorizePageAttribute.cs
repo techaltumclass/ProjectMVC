@@ -34,6 +34,8 @@ namespace MVC_Ecommerce.CustomFilters
            string user = filterContext.RequestContext
                                                    .HttpContext.User.Identity.Name;
 
+            bool isPersmission = false;
+
             if (HttpContext.Current.Session["SESSION_USER_ID"] == null)
             {
                 var context = filterContext.HttpContext;
@@ -51,13 +53,33 @@ namespace MVC_Ecommerce.CustomFilters
                                                 { "action", "Login" },
                                                 { "controller", "Account" } });
             }
-            else if (HttpContext.Current.Session["SESSION_ADMIN"].ToString() != "1")
+    
+            if(HttpContext.Current.Session["SESSION_ADMIN"].ToString() == )
+            {
+
+            }
+
+            else if (HttpContext.Current.Session["SESSION_ROLE_ID"].ToString() != _roleID || 
+                HttpContext.Current.Session["SESSION_ROLE_ID"].ToString() != "1")
+            {
+                isPersmission = false;
+            }
+            else if (HttpContext.Current.Session["SESSION_ADMIN"].ToString() != _roleID)
+            {
+
+                isPersmission = false;
+               
+            }
+
+
+            if(!isPersmission)
             {
                 filterContext.Result = new RedirectToRouteResult(
-                                             new RouteValueDictionary {
+                                            new RouteValueDictionary {
                                                 { "action", "UnAuthorizedUser" },
                                                 { "controller", "Account" } });
             }
+
         }
     }
 }

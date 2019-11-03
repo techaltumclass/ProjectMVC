@@ -11,7 +11,8 @@ namespace ECommerce.DataLayer.EDMX
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class RoleMaster
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,7 @@ namespace ECommerce.DataLayer.EDMX
         }
     
         public byte RoleID { get; set; }
+        [Required]
         public string RollName { get; set; }
         public string RollType { get; set; }
         public string RollDescription { get; set; }
