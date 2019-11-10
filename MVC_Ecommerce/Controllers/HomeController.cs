@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace MVC_Ecommerce.Controllers
 {
-    [AuthorizePage((int)AspectEnums.RoleType.Employee)]
+    //[AuthorizePage((int)AspectEnums.RoleType.Employee)]
     public class HomeController : Controller
     {
         ECommerceDataEntities _context = new ECommerceDataEntities();

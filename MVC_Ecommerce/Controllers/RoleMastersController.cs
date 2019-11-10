@@ -13,7 +13,7 @@ using MVC_Ecommerce.ViewModels;
 
 namespace MVC_Ecommerce.Controllers
 {
-    [AuthorizePage((int)AspectEnums.RoleType.Admin)]
+    //[AuthorizePage((int)AspectEnums.RoleType.Admin)]
     public class RoleMastersController : Controller
     {
         private ECommerceDataEntities db = new ECommerceDataEntities();
@@ -66,6 +66,13 @@ namespace MVC_Ecommerce.Controllers
 
             ViewBag.CreatedBy = new SelectList(db.UserMasters, "UserID", "cfirstname", roleMaster.CreatedBy);
             return View(roleMaster);
+        }
+
+        public JsonResult GetUsersByRole(int Id)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            var users = db.UserRoles.Where(x=>x.RoleID == Id).ToList();
+            return Json(users, JsonRequestBehavior.AllowGet);
         }
 
         // GET: RoleMasters/Create
