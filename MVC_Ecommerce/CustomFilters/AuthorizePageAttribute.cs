@@ -54,10 +54,10 @@ namespace MVC_Ecommerce.CustomFilters
                                                 { "controller", "Account" } });
             }
     
-            if(HttpContext.Current.Session["SESSION_ADMIN"].ToString() == )
-            {
+            //if(HttpContext.Current.Session["SESSION_ADMIN"].ToString() == )
+            //{
 
-            }
+            //}
 
             else if (HttpContext.Current.Session["SESSION_ROLE_ID"].ToString() != _roleID || 
                 HttpContext.Current.Session["SESSION_ROLE_ID"].ToString() != "1")

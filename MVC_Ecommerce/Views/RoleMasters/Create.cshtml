@@ -5,66 +5,119 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create New Role</h2>
-<div id="divRole">
-    @using (Ajax.BeginForm("Create", "RoleMasters", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "divRole" }))
-    {
-        @Html.AntiForgeryToken()
+<div class="row">
+    <div class="col-md-8">
+        <h2>Create New Role</h2>
+        <div id="divRole">
+            @using (Ajax.BeginForm("Create", "RoleMasters", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "divRole" }))
+            {
+                @Html.AntiForgeryToken()
 
+                <div class="form-horizontal">
+                    <h4>New Role Master</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RollName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.RollName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.RollName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RollType, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.RollType, new { htmlAttributes = new { @class = "form-control", @id = "Id", @onchange = "myFunction(this.value)" } })
+                            @Html.ValidationMessageFor(model => model.RollType, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RollDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.RollDescription, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.RollDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CreatedBy, "CreatedBy", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("CreatedBy", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CreatedOn, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.CreatedOn, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <h2>User Roles</h2>
         <div class="form-horizontal">
-            <h4>New Role Master</h4>
+            <h4>Ajax json result</h4>
             <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.RollName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.RollName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RollName, "", new { @class = "text-danger" })
-                </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.RollType, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.RollType, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RollType, "", new { @class = "text-danger" })
-                </div>
-            </div>
+            <div id="table">
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.RollDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.RollDescription, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RollDescription, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.CreatedBy, "CreatedBy", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("CreatedBy", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.CreatedOn, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CreatedOn, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
             </div>
         </div>
-    }
+    </div>
 </div>
-
-
+<br />
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<script type="text/javascript">
+    var data = [];
+    function myFunction(id) {
+
+        $.ajax({
+            url: 'GetUsersByRole?Id=' + id,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (res) {
+                data = res;
+                console.log(data);
+                addTable(data);
+            }
+        });
+
+    }
+
+    function addTable(data) {
+        var html = "";
+        if (data.length > 0) {
+             html = "<table border='1|1'> <tr><td>Role ID</td> <td>UserID </td> </tr>";
+            for (var i = 0; i < data.length; i++) {
+                html += "<tr>";
+                html += "<td>" + data[i].RoleID + "</td>";
+                html += "<td>" + data[i].UserID + "</td>";
+
+                html += "</tr>";
+
+            }
+        } else {
+            html += "<p> No data found. </p>"
+        }
+        html += "</table>";
+        $("#table").html(html);
+    }
+
+</script>
