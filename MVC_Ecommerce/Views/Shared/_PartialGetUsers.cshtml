@@ -1,0 +1,25 @@
+﻿@using ECommerce.DataLayer.EDMX;
+@model IEnumerable<UserMaster>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>List of Users</h2>
+        <table>
+            <th>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Password</td>
+            </th>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.cfirstname</td>
+                    <td>@item.clastname</td>
+                    <td>@item.cemailaddress</td>
+                    <td>@item.cpassword</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
