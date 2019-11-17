@@ -1,9 +1,13 @@
 ﻿@model ECommerce.DataLayer.EDMX.RoleMaster
 
 @{
-    ViewBag.Title = "Create New Role";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+                /**/
+
+                ViewBag.Title = "Create New Role";
+                Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 
 <div class="row">
     <div class="col-md-8">
@@ -104,7 +108,7 @@
     function addTable(data) {
         var html = "";
         if (data.length > 0) {
-             html = "<table border='1|1'> <tr><td>Role ID</td> <td>UserID </td> </tr>";
+            html = "<table border='1|1'> <tr><td>Role ID</td> <td>UserID </td> </tr>";
             for (var i = 0; i < data.length; i++) {
                 html += "<tr>";
                 html += "<td>" + data[i].RoleID + "</td>";

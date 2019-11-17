@@ -19,6 +19,12 @@ namespace MVC_Ecommerce.Controllers
             return View(users);
         }
 
+        public ActionResult PartialGetUsers()
+        {
+            List<UserMaster> users = _context.UserMasters.ToList();
+            return PartialView("_PartialGetUsers", users);
+        }
+
         [AuthorizePage((int)AspectEnums.RoleType.Admin)]
         public ActionResult About()
         {
