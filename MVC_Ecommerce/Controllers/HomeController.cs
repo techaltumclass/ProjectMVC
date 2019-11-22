@@ -15,10 +15,18 @@ namespace MVC_Ecommerce.Controllers
         ECommerceDataEntities _context = new ECommerceDataEntities();
         public ActionResult Index()
         {
-            List<UserMaster> users = _context.UserMasters.ToList();
-            return View(users);
+            
+            return View();
         }
+        [HttpGet]
+        public JsonResult EmpDetails()
+        {
+            //Creating List   
+            _context.Configuration.ProxyCreationEnabled = false;
+            List<UserMaster> users = _context.UserMasters.ToList();
+            return Json(users, JsonRequestBehavior.AllowGet);
 
+        }
         public ActionResult PartialGetUsers()
         {
             List<UserMaster> users = _context.UserMasters.ToList();

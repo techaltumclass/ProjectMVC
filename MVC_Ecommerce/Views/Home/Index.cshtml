@@ -1,18 +1,56 @@
-﻿@using Ecommerce.BusinessLayer.Services.BO;
-@model IEnumerable<UserMasterBO>
-
-@{
-    ViewBag.Title = "Home Page";
+﻿@{
+    ViewBag.Title = "Home";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+@*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js">
 
+    </script>*@
 
-    <div>
-        @{Html.RenderPartial("_PartialGetUsers", Model);}
+@*<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css" />
+    <script type="text/javascript"
+            src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript"
+            src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>*@
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script>
 
-    </div>
+    $(document).ready(function () {
+        //  debugger;
+        $.noConflict();
+        //Call EmpDetails jsonResult Method
+        $.getJSON("http://localhost:49743/Home/EmpDetails",
+            function (json) {
+                var tr;
+                //Append each row to html table
+                for (var i = 0; i < json.length; i++) {
+                    tr = $('<tr/>');
+                    tr.append("<td>" + json[i].cfirstname + "</td>");
+                    tr.append("<td>" + json[i].clastname + "</td>");
+                    tr.append("<td>" + json[i].cemailaddress + "</td>");
+                    tr.append("<td>" + json[i].cpassword + "</td>");
+                    //  $('#myTable').append(tr);
+                    $('table').append(tr);
+                }
+                $('#EmpInfo').DataTable();
+            });
+
+    });
+</script>
+<div style="margin-top:100px;"></div>
+<table id="EmpInfo" class="table table-bordered table-condensed table-hover table-striped">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email ID</th>
+            <th>Password</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+@*<td>@item.cfirstname</td><td>@item.clastname</td><td>@item.cemailaddress</td><td>@item.cpassword</td>*@
