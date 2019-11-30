@@ -30,7 +30,6 @@ namespace MVC_Ecommerce.Controllers
         }
 
         [HttpPost]
-        [Route("Login-User")]
         public ActionResult Login(string email, string password)
         {
             UserMaster user = _context.UserMasters.Where(x => x.cemailaddress == email && x.cpassword == password).FirstOrDefault();
@@ -49,6 +48,8 @@ namespace MVC_Ecommerce.Controllers
             }
 
         }
+
+
 
         [HttpGet]
         public ActionResult Register()
