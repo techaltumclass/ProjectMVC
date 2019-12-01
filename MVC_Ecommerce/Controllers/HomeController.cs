@@ -33,6 +33,7 @@ namespace MVC_Ecommerce.Controllers
             return PartialView("_PartialGetUsers", users);
         }
 
+        [OutputCache(Duration = 1000)]
         [AuthorizePage((int)AspectEnums.RoleType.Admin)]
         public ActionResult About()
         {
