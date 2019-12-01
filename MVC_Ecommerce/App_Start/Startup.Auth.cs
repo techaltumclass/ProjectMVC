@@ -31,13 +31,13 @@ namespace MVC_Ecommerce
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
             // Configure the sign in cookie
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Account/Login"),
-                LogoutPath = new PathString("/Account/LogOff"),
-                ExpireTimeSpan = TimeSpan.FromMinutes(5.0),
-            });
+            //app.UseCookieAuthentication(new CookieAuthenticationOptions
+            //{
+            //    AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+            //    LoginPath = new PathString("/Account/Login"),
+            //    LogoutPath = new PathString("/Account/LogOff"),
+            //    ExpireTimeSpan = TimeSpan.FromMinutes(5.0),
+            //});
 
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 

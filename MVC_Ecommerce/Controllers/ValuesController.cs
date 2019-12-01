@@ -35,8 +35,36 @@ namespace MVC_Ecommerce.Controllers
         }
 
         // POST api/values
+        [Route("post")]
         public void Post([FromBody]string value)
         {
+
+        }
+
+        [HttpGet]
+        [Route("employees")]
+        public List<UserMaster> GetEmployees()
+        {
+            return _context.UserMasters.ToList();
+        }
+
+        [HttpPut]
+        [Route("add-employee")]
+        public HttpResponseMessage AddEmployee(UserMaster user)
+        {
+            try
+            {
+               
+                _context.UserMasters.Add(user);
+                _context.SaveChanges();
+                return Request.CreateResponse(HttpStatusCode.OK, user);
+            }
+            catch(Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "Error occured please check.");
+            }
+           
+         
         }
 
         // PUT api/values/5
