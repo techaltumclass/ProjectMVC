@@ -1,15 +1,13 @@
-﻿using Ecommerce.BusinessLayer;
+﻿using AutoMapper;
+using Ecommerce.BusinessLayer;
 using Ecommerce.BusinessLayer.Services;
 using Ecommerce.BusinessLayer.Services.BO;
+using ECommerce.BusinessLayer.Services.BO;
 using ECommerce.CommonLayer;
 using ECommerce.DataLayer.EDMX;
 using ECommerce.DataLayer.Impl;
 using ECommerce.DataLayer.Repository;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Unity;
 using Unity.Injection;
 
@@ -22,7 +20,7 @@ namespace Ecommerce.CommonLayer.AOPEngine
         {
             AopEngine.Initialize();
             InitializeLibrary();
-            AopEngine.Container.RegisterType<IMapper, Mapper>(new InjectionMember[] { });
+            
             MapEntities();
         }
 
@@ -54,14 +52,33 @@ namespace Ecommerce.CommonLayer.AOPEngine
 
         private static void MapEntities()
         {
-            Mapper mapper = AopEngine.Container.Resolve<Mapper>();
-            MapBOEntities(mapper);
+            var config = MapBOEntities();
+            AutoMapper.IMapper mapper = config.CreateMapper();
+            AopEngine.Container.RegisterInstance(mapper);
         }
 
-        private static void MapBOEntities(Mapper mapper)
+        private static MapperConfiguration MapBOEntities()
         {
-            mapper.CreateMap<UserMaster, UserMasterBO>();
-            mapper.CreateMap<UserMasterBO, UserMaster>();
+
+            var config = new MapperConfiguration(cfg =>
+            {
+                //Create all maps here
+                cfg.CreateMap<UserMaster, UserMasterBO>();
+                cfg.CreateMap<UserMasterBO, UserMaster>();
+
+                cfg.CreateMap<UserLog, UserLogBO>();
+                cfg.CreateMap<UserLogBO, UserLog>();
+
+                cfg.CreateMap<UserRole, UserMasterBO>();
+                cfg.CreateMap<UserMasterBO, UserRole>();
+
+                cfg.CreateMap<RoleMaster, UserMasterBO>();
+                cfg.CreateMap<UserMasterBO, RoleMaster>();
+            });
+
+            return config;
+           
+
         }
     }
 }

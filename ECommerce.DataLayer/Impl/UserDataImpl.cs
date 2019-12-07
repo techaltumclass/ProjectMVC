@@ -12,7 +12,15 @@ namespace ECommerce.DataLayer.Impl
     {
         public List<UserMaster> GetUser()
         {
-            return EcommerceDbContext.UserMasters.ToList();
+            try
+            {
+                return EcommerceDbContext.UserMasters.ToList();
+            }
+            catch(Exception ex)
+            {
+                return new List<UserMaster>();
+            }
+            
         }
 
         public UserMaster UserLogin(string email, string password)

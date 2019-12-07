@@ -21,6 +21,7 @@ namespace ECommerce.CommonLayer
         public void Map<T, K>(T source, K target)
         {
             var config = new MapperConfiguration(cfg => { cfg.CreateMap<T, K>(); });
+            // CreateMap<T, K>();
             AutoMapper.IMapper iMapper = config.CreateMapper();
             //var source = new T();
             var destination = iMapper.Map<T, K>(source);
