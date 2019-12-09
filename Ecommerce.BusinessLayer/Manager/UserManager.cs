@@ -13,7 +13,7 @@ using static Ecommerce.BusinessLayer.BaseService;
 
 namespace Ecommerce.BusinessLayer
 {
-    public class UserManager: BaseService, IUserService
+    public class UserManager : BaseService, IUserService
     {
         [Unity.Dependency(ContainerDataLayerInstanceNames.USER_REPOSITORY)]
         public IUserRepository UserRepository { get; set; }
@@ -37,6 +37,18 @@ namespace Ecommerce.BusinessLayer
         public List<UserMasterBO> GetUser()
         {
             return mapper.Map<List<UserMasterBO>>(UserRepository.GetUser());
+        }
+
+        public int SubmitUser(UserMasterBO user)
+        {
+            UserMaster U = mapper.Map<UserMaster>(user);
+
+            return UserRepository.SubmitUser(U);
+        }
+
+        public int GetUserRoleID(int userID)
+        {
+            return UserRepository.GetUserRoleID(userID);
         }
     }
 }

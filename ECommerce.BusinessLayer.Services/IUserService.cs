@@ -11,5 +11,7 @@ namespace Ecommerce.BusinessLayer.Services
     {
         UserMasterBO UserLogin(string email, string password);
         List<UserMasterBO> GetUser();
+        int SubmitUser(UserMasterBO user);
+        int GetUserRoleID(int userID);
     }
 }

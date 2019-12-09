@@ -1,4 +1,4 @@
-﻿using ECommerce.DataLayer.EDMX;
+﻿using Ecommerce.BusinessLayer.Services.BO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,20 +8,19 @@ using System.Web.Http;
 
 namespace MVC_Ecommerce.Controllers
 {
-    [RoutePrefix("test")]
-    public class ValuesController : ApiController
+    [System.Web.Http.RoutePrefix("test")]
+    public class ValuesController : BaseAPIController
     {
-        ECommerceDataEntities _context = new ECommerceDataEntities();
-
+        
         // GET api/values
-        [Route("values")]
+        [System.Web.Http.Route("values")]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        [Route("Hello")]
-        [Authorize]
+        [System.Web.Http.Route("Hello")]
+        [System.Web.Http.Authorize]
         [HttpGet]
         public HttpResponseMessage HelloWorld()
         {
@@ -35,7 +34,7 @@ namespace MVC_Ecommerce.Controllers
         }
 
         // POST api/values
-        [Route("post")]
+        [System.Web.Mvc.Route("post")]
         public void Post([FromBody]string value)
         {
 
@@ -43,29 +42,29 @@ namespace MVC_Ecommerce.Controllers
 
         [HttpGet]
         [Route("employees")]
-        public List<UserMaster> GetEmployees()
+        public List<UserMasterBO> GetEmployees()
         {
-            return _context.UserMasters.ToList();
+            return UserBusinessInstance.GetUser();
         }
 
-        [HttpPut]
-        [Route("add-employee")]
-        public HttpResponseMessage AddEmployee(UserMaster user)
-        {
-            try
-            {
+        //[HttpPut]
+        //[Route("add-employee")]
+        //public HttpResponseMessage AddEmployee(UserMasterBO user)
+        //{
+        //    try
+        //    {
                
-                _context.UserMasters.Add(user);
-                _context.SaveChanges();
-                return Request.CreateResponse(HttpStatusCode.OK, user);
-            }
-            catch(Exception ex)
-            {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, "Error occured please check.");
-            }
+        //        _context.UserMasters.Add(user);
+        //        _context.SaveChanges();
+        //        return Request.CreateResponse(HttpStatusCode.OK, user);
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        return Request.CreateResponse(HttpStatusCode.InternalServerError, "Error occured please check.");
+        //    }
            
          
-        }
+        //}
 
         // PUT api/values/5
         public void Put(int id, [FromBody]string value)

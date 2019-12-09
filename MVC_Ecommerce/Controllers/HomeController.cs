@@ -1,18 +1,19 @@
-﻿using ECommerce.DataLayer;
-using ECommerce.DataLayer.EDMX;
-using MVC_Ecommerce.CustomFilters;
+﻿using MVC_Ecommerce.CustomFilters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Ecommerce.BusinessLayer;
+using Ecommerce.BusinessLayer.Services;
+using ECommerce.CommonLayer;
+using Ecommerce.BusinessLayer.Services.BO;
 
 namespace MVC_Ecommerce.Controllers
 {
     //[AuthorizePage((int)AspectEnums.RoleType.Employee)]
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        ECommerceDataEntities _context = new ECommerceDataEntities();
         public ActionResult Index()
         {
             
@@ -21,15 +22,13 @@ namespace MVC_Ecommerce.Controllers
         [HttpGet]
         public JsonResult EmpDetails()
         {
-            //Creating List   
-            _context.Configuration.ProxyCreationEnabled = false;
-            List<UserMaster> users = _context.UserMasters.ToList();
+            List<UserMasterBO> users = UserBusinessInstance.GetUser();
             return Json(users, JsonRequestBehavior.AllowGet);
 
         }
         public ActionResult PartialGetUsers()
         {
-            List<UserMaster> users = _context.UserMasters.ToList();
+            List<UserMasterBO> users = UserBusinessInstance.GetUser();
             return PartialView("_PartialGetUsers", users);
         }
 

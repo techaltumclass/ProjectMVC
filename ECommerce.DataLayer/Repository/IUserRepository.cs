@@ -11,5 +11,7 @@ namespace ECommerce.DataLayer.Repository
     {
         UserMaster UserLogin(string email, string password);
         List<UserMaster> GetUser();
+        int SubmitUser(UserMaster user);
+        int GetUserRoleID(int userID);
     }
 }

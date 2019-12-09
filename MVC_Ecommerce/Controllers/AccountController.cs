@@ -12,18 +12,8 @@ namespace MVC_Ecommerce.Controllers
 {
     public class AccountController : BaseController
     {
-        ECommerceDataEntities _context;
-        UserMaster USERPROFILE = new UserMaster();
+        UserMasterBO USERPROFILE = new UserMasterBO();
 
-        public AccountController()
-        {
-            _context = new ECommerceDataEntities();
-        }
-
-        public AccountController(ECommerceDataEntities context)
-        {
-            _context = context;
-        }
 
         [HttpGet]
         [Route("Login-User")]
@@ -35,7 +25,7 @@ namespace MVC_Ecommerce.Controllers
         [HttpPost]
         public ActionResult Login(string email, string password)
         {
-            UserMaster user = _context.UserMasters.Where(x => x.cemailaddress == email && x.cpassword == password).FirstOrDefault();
+            UserMasterBO user = UserBusinessInstance.UserLogin(email, password); //.Where(x => x.cemailaddress == email && x.cpassword == password).FirstOrDefault();
             if (user != null)
             {
                 ViewBag.LoginMessage = "User Logged In successfully!";
@@ -61,13 +51,12 @@ namespace MVC_Ecommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(UserMaster user)
+        public ActionResult Register(UserMasterBO user)
         {
             bool isSuccess = false;
             if (ModelState.IsValid)
             {
-                _context.UserMasters.Add(user);
-                isSuccess = _context.SaveChanges() > 0 ? true : false;
+                isSuccess = UserBusinessInstance.SubmitUser(user) > 0 ? true : false;
             }
             else
                 ViewBag.Message = "Model Validation error";
@@ -106,10 +95,10 @@ namespace MVC_Ecommerce.Controllers
 
         private void WelcomeUser(int userID)
         {
-            
+
             CreateFreshSession();
 
-            int roleID = Convert.ToInt32(_context.UserRoles.Where(x => x.UserID == userID).FirstOrDefault().RoleID);
+            int roleID = UserBusinessInstance.GetUserRoleID(userID);
             bool IsAdmin = roleID == 1 ? true : false;
             HttpContext.Session["SESSION_USER_ID"] = userID;
             HttpContext.Session["SESSION_PROFILE_KEY"] = USERPROFILE;

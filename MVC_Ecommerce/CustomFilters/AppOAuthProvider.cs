@@ -1,4 +1,5 @@
-﻿using ECommerce.DataLayer.EDMX;
+﻿using Ecommerce.BusinessLayer.Services;
+using ECommerce.CommonLayer;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
@@ -23,10 +24,20 @@ namespace MVC_Ecommerce.CustomFilters
         /// </summary>
         private readonly string _publicClientId;
 
-        /// <summary>
-        /// Database Store property.
-        /// </summary>
-        private ECommerceDataEntities databaseManager = new ECommerceDataEntities();
+        
+        private IUserService userBusinessInstance;
+
+        public IUserService UserBusinessInstance
+        {
+            get
+            {
+                if (userBusinessInstance == null)
+                {
+                    userBusinessInstance = AopEngine.Resolve<IUserService>(AspectEnums.AspectInstanceNames.UserManager, AspectEnums.ApplicationName.ECommerce);
+                }
+                return userBusinessInstance;
+            }
+        }
 
         #endregion
 
@@ -62,7 +73,7 @@ namespace MVC_Ecommerce.CustomFilters
             // Initialization.
             string usernameVal = context.UserName;
             string passwordVal = context.Password;
-            var user = this.databaseManager.UserMasters.Where(x => x.cemailaddress == usernameVal && x.cpassword == passwordVal).FirstOrDefault();
+            var user = UserBusinessInstance.UserLogin(usernameVal, passwordVal);
 
             // Verification.
             if (user == null )

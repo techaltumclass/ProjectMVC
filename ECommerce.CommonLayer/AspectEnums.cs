@@ -22,5 +22,13 @@ namespace ECommerce.CommonLayer
         {
             UserDataImpl
         }
+
+        public enum RoleType
+        {
+            Admin = 1,
+            Employee = 2,
+            Customer = 3,
+            Default = 99
+        }
     }
 }
